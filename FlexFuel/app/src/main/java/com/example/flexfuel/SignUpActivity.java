@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.squareup.picasso.Picasso;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -159,7 +158,7 @@ public class SignUpActivity extends AppCompatActivity {
                 builder.setView(customView);
 
                 ImageView gifPopUp = customView.findViewById(R.id.urGoalGif);
-                Picasso.get().load(R.drawable.logo).into(gifPopUp);
+
 
                 builder.setView(customView);
 
