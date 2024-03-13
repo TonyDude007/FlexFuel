@@ -7,12 +7,12 @@
     android:layout_height="wrap_content"
     android:paddingVertical="10dp">
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/urGoalGif"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:src="@drawable/logo"/>
 
     <TextView
         android:id="@+id/textView8"

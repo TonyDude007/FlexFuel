@@ -12,11 +12,12 @@
         android:layout_weight="80"
         android:orientation="vertical">
 
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
+            android:src="@drawable/logo"
             tools:src="" />
 
         <TextView
