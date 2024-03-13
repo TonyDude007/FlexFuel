@@ -164,7 +164,9 @@ public class SignUpActivity extends AppCompatActivity {
 
                 Button finishBtn = customView.findViewById(R.id.finishBtn);
                 finishBtn.setOnClickListener(v1 -> {
-                    Toast.makeText(context,"Finished",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"Success",Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(context,"Enter Ur Goal!",Toast.LENGTH_LONG).show();
                 });
 
                 // Create and show the AlertDialog
