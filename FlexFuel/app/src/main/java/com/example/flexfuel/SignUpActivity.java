@@ -33,6 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
     Spinner weightSpinner;
     Spinner heightSpinner;
     Button signUp;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -148,7 +149,6 @@ public class SignUpActivity extends AppCompatActivity {
         signUp = findViewById(R.id.SignUpBtn);
         signUp.setOnClickListener(new View.OnClickListener()  {
             // Declare AlertDialog object outside of OnClickListener
-            AlertDialog alertDialog;
             @Override
             public void onClick(View v) {
 
@@ -173,7 +173,7 @@ public class SignUpActivity extends AppCompatActivity {
                     });
 
                     // Create the AlertDialog
-                    AlertDialog alertDialog = builder.create();
+                    alertDialog = builder.create();
 
                     // Show the AlertDialog
                     alertDialog.show();
