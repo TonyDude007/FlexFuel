@@ -152,7 +152,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!String.valueOf(email).isEmpty() == !String.valueOf(password).isEmpty()) {
+                if (!email.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
                     // Create an AlertDialog Builder
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
