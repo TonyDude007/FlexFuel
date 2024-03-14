@@ -1,7 +1,6 @@
 package com.example.flexfuel;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -149,29 +147,39 @@ public class SignUpActivity extends AppCompatActivity {
 
         signUp = findViewById(R.id.SignUpBtn);
         signUp.setOnClickListener(new View.OnClickListener()  {
+            // Declare AlertDialog object outside of OnClickListener
+            AlertDialog alertDialog;
             @Override
             public void onClick(View v) {
-                // Create an AlertDialog Builder
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                // Inflate the custom layout
-                View customView = getLayoutInflater().inflate(R.layout.sign_up_popup, null);
-                builder.setView(customView);
+                if (!String.valueOf(email).isEmpty() == !String.valueOf(password).isEmpty()) {
+                    // Create an AlertDialog Builder
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                ImageView gifPopUp = customView.findViewById(R.id.urGoalGif);
+                    // Inflate the custom layout
+                    View customView = getLayoutInflater().inflate(R.layout.sign_up_popup, null);
+                    builder.setView(customView);
 
-                builder.setView(customView);
+                    Button finishBtn = customView.findViewById(R.id.finishBtn);
+                    finishBtn.setOnClickListener(v1 -> {
 
-                Button finishBtn = customView.findViewById(R.id.finishBtn);
-                finishBtn.setOnClickListener(v1 -> {
-                    Toast.makeText(context,"Success",Toast.LENGTH_LONG).show();
+                        DatabaseO databaseO = new DatabaseO();
+                        databaseO.registerUser(context,String.valueOf(email),String.valueOf(password));
 
-                    Toast.makeText(context,"Enter Ur Goal!",Toast.LENGTH_LONG).show();
-                });
+                        Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
 
-                // Create and show the AlertDialog
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                        // Dismiss the AlertDialog when the "finish" button is clicked
+                        alertDialog.dismiss();
+                    });
+
+                    // Create the AlertDialog
+                    AlertDialog alertDialog = builder.create();
+
+                    // Show the AlertDialog
+                    alertDialog.show();
+                } else {
+                    Toast.makeText(context,"Email or Password Empty",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
